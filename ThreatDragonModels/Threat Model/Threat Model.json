@@ -135,7 +135,7 @@
           },
           {
             "position": {
-              "x": 390,
+              "x": 470,
               "y": 270
             },
             "size": {
@@ -257,8 +257,8 @@
           },
           {
             "position": {
-              "x": 200,
-              "y": 270
+              "x": 150,
+              "y": 240
             },
             "size": {
               "width": 112.5,
@@ -489,14 +489,17 @@
           },
           {
             "position": {
-              "x": 640,
-              "y": 190
+              "x": 624,
+              "y": 80
             },
             "size": {
               "width": 112.5,
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "Doctor"
+              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -571,40 +574,521 @@
               "items": [
                 {
                   "group": "top",
-                  "id": "265b50b0-3ff3-4a8b-b791-893d7e91cb0d"
+                  "id": "4871fa99-f480-49bd-a0b8-f919d8f9b6dc"
                 },
                 {
                   "group": "right",
-                  "id": "1bc90227-857a-40cc-aead-8dbcce73c9f4"
+                  "id": "073ad56d-ab6c-4b67-bd78-837a6942db69"
                 },
                 {
                   "group": "bottom",
-                  "id": "e1929956-b5e5-45a9-8c27-bd73f039d76f"
+                  "id": "76566b07-92e4-471b-9724-233a0f5666b7"
                 },
                 {
                   "group": "left",
-                  "id": "26d20c4e-9a59-465f-bf4a-83eefac953cf"
+                  "id": "af9a3541-9017-4523-8fd5-309168d1f879"
                 }
               ]
             },
-            "id": "7a785d7a-a5f2-44d4-af47-1deb896c8741",
+            "id": "fe3178df-caea-4db9-8c50-04aa5fbfd304",
             "zIndex": 5,
             "data": {
               "type": "tm.Actor",
-              "name": "Actor",
+              "name": "Doctor",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 650,
+              "y": 350
             },
-            "tools": {
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Data"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
               "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
+                {
+                  "group": "top",
+                  "id": "ea5c978c-3b6b-4039-b638-19e5a1656ac2"
+                },
+                {
+                  "group": "right",
+                  "id": "158d9e44-9cfe-4f65-8939-4c077b9a6a1e"
+                },
+                {
+                  "group": "bottom",
+                  "id": "602dd0c4-62c1-442f-a407-ed8af9697875"
+                },
+                {
+                  "group": "left",
+                  "id": "685dc5ca-2510-4883-bcd3-8994c3db630c"
+                }
+              ]
+            },
+            "id": "a1d5d49d-e777-46a8-82f1-54aa805671bb",
+            "zIndex": 6,
+            "data": {
+              "type": "tm.Store",
+              "name": "Data",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 510,
+              "y": 460
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "(Document-)\nVerification\nApplication"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "0cad6660-fda2-45b6-a632-97548b72f2c7"
+                },
+                {
+                  "group": "right",
+                  "id": "c4fdaeb2-22ae-4294-ad32-239c2fbe30c6"
+                },
+                {
+                  "group": "bottom",
+                  "id": "333f3c7d-a69a-4402-ab21-144d32cd0486"
+                },
+                {
+                  "group": "left",
+                  "id": "7c857084-c78d-4946-97cf-f8e5bb8866bb"
+                }
+              ]
+            },
+            "id": "00539326-15e2-4329-9d08-475e9c48d474",
+            "zIndex": 7,
+            "data": {
+              "type": "tm.Process",
+              "name": "(Document-)\nVerification\nApplication",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 262.5,
+              "y": 350
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Logfiles Web Application"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "ea5c978c-3b6b-4039-b638-19e5a1656ac2"
+                },
+                {
+                  "group": "right",
+                  "id": "158d9e44-9cfe-4f65-8939-4c077b9a6a1e"
+                },
+                {
+                  "group": "bottom",
+                  "id": "602dd0c4-62c1-442f-a407-ed8af9697875"
+                },
+                {
+                  "group": "left",
+                  "id": "685dc5ca-2510-4883-bcd3-8994c3db630c"
+                }
+              ]
+            },
+            "id": "dcc2d8c5-3183-4896-bae7-1f8661b2875c",
+            "zIndex": 8,
+            "data": {
+              "type": "tm.Store",
+              "name": "Logfiles Web Application",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 263,
+              "y": 460
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Logfiles\nVerification Application"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "ea5c978c-3b6b-4039-b638-19e5a1656ac2"
+                },
+                {
+                  "group": "right",
+                  "id": "158d9e44-9cfe-4f65-8939-4c077b9a6a1e"
+                },
+                {
+                  "group": "bottom",
+                  "id": "602dd0c4-62c1-442f-a407-ed8af9697875"
+                },
+                {
+                  "group": "left",
+                  "id": "685dc5ca-2510-4883-bcd3-8994c3db630c"
+                }
+              ]
+            },
+            "id": "14484a1e-7b03-4de9-a9ef-35e6ccaf032e",
+            "zIndex": 9,
+            "data": {
+              "type": "tm.Store",
+              "name": "Logfiles\nVerification Application",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
             }
           }
         ]
