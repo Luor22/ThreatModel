@@ -489,17 +489,14 @@
           },
           {
             "position": {
-              "x": 690,
-              "y": 220
+              "x": 640,
+              "y": 190
             },
             "size": {
-              "width": 60,
+              "width": 112.5,
               "height": 60
             },
             "attrs": {
-              "text": {
-                "text": "test"
-              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -507,7 +504,7 @@
               }
             },
             "visible": true,
-            "shape": "process",
+            "shape": "actor",
             "ports": {
               "groups": {
                 "top": {
@@ -574,36 +571,40 @@
               "items": [
                 {
                   "group": "top",
-                  "id": "5f8a0a64-fc2a-4019-9830-1af961d82f1e"
+                  "id": "265b50b0-3ff3-4a8b-b791-893d7e91cb0d"
                 },
                 {
                   "group": "right",
-                  "id": "b87b2cde-0196-45e8-91c2-abbaffe1dd5f"
+                  "id": "1bc90227-857a-40cc-aead-8dbcce73c9f4"
                 },
                 {
                   "group": "bottom",
-                  "id": "90f916f6-3e89-4fed-bfef-eac433e0aaf8"
+                  "id": "e1929956-b5e5-45a9-8c27-bd73f039d76f"
                 },
                 {
                   "group": "left",
-                  "id": "2c35730e-763b-4172-9918-ff52f579d961"
+                  "id": "26d20c4e-9a59-465f-bf4a-83eefac953cf"
                 }
               ]
             },
-            "id": "7d8c6809-fd5e-424e-b0b2-8558a0f749c1",
+            "id": "7a785d7a-a5f2-44d4-af47-1deb896c8741",
             "zIndex": 5,
             "data": {
-              "type": "tm.Process",
-              "name": "test",
+              "type": "tm.Actor",
+              "name": "Actor",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
-              "handlesCardPayment": false,
-              "handlesGoodsOrServices": false,
-              "isWebApplication": false,
-              "privilegeLevel": "",
+              "providesAuthentication": false,
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           }
         ]
