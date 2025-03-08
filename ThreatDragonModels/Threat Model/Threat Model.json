@@ -19,8 +19,8 @@
         "cells": [
           {
             "position": {
-              "x": 200,
-              "y": 100
+              "x": 190,
+              "y": 80
             },
             "size": {
               "width": 112.5,
@@ -257,8 +257,8 @@
           },
           {
             "position": {
-              "x": 150,
-              "y": 240
+              "x": 90,
+              "y": 270
             },
             "size": {
               "width": 112.5,
@@ -605,8 +605,8 @@
           },
           {
             "position": {
-              "x": 650,
-              "y": 350
+              "x": 720,
+              "y": 340
             },
             "size": {
               "width": 120,
@@ -728,8 +728,8 @@
           },
           {
             "position": {
-              "x": 510,
-              "y": 460
+              "x": 540,
+              "y": 480
             },
             "size": {
               "width": 60,
@@ -847,8 +847,8 @@
           },
           {
             "position": {
-              "x": 262.5,
-              "y": 350
+              "x": 302.5,
+              "y": 360
             },
             "size": {
               "width": 120,
@@ -970,8 +970,8 @@
           },
           {
             "position": {
-              "x": 263,
-              "y": 460
+              "x": 310,
+              "y": 510
             },
             "size": {
               "width": 120,
@@ -1089,6 +1089,254 @@
               "storesCredentials": false,
               "storesInventory": false,
               "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "submit receipt",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "submit receipt"
+            ],
+            "id": "6893c939-8400-41cc-995b-90c746920b40",
+            "source": {
+              "cell": "3c14fd45-2795-4c54-998e-a27a1a7b4c2a",
+              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
+            },
+            "target": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 230
+              },
+              {
+                "x": 330,
+                "y": 250
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "send receipt",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "send receipt"
+            ],
+            "id": "b0f63106-d600-432e-8b2e-4ace1346533f",
+            "source": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "556b6e1a-f8a2-479a-ae8a-3a9c21b6e0b6"
+            },
+            "target": {
+              "cell": "00539326-15e2-4329-9d08-475e9c48d474",
+              "port": "7c857084-c78d-4946-97cf-f8e5bb8866bb"
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": 410
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "send order",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "send order"
+            ],
+            "id": "a9fb346e-b786-4ee4-939f-a94e92419ed6",
+            "source": {
+              "cell": "00539326-15e2-4329-9d08-475e9c48d474",
+              "port": "c4fdaeb2-22ae-4294-ad32-239c2fbe30c6"
+            },
+            "target": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "47fc1d8c-e0e4-40d9-b388-ba53e72fef29"
+            },
+            "vertices": [
+              {
+                "x": 610,
+                "y": 330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "store Logs",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "store Logs"
+            ],
+            "id": "c5e5bc18-591a-453b-8a68-515afd910914",
+            "source": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
+            },
+            "target": {
+              "cell": "dcc2d8c5-3183-4896-bae7-1f8661b2875c",
+              "port": "ea5c978c-3b6b-4039-b638-19e5a1656ac2"
+            },
+            "vertices": [
+              {
+                "x": 400,
+                "y": 330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Store Logs",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Store Logs"
+            ],
+            "id": "2a1f119b-66e4-4853-8fd1-c85d177b5348",
+            "source": {
+              "x": 540,
+              "y": 520
+            },
+            "target": {
+              "cell": "14484a1e-7b03-4de9-a9ef-35e6ccaf032e",
+              "port": "158d9e44-9cfe-4f65-8939-4c077b9a6a1e"
             }
           }
         ]
