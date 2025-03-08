@@ -160,7 +160,7 @@
               ],
               "threatFrequency": {
                 "spoofing": 3,
-                "repudiation": 1
+                "repudiation": 2
               }
             }
           },
@@ -178,8 +178,8 @@
                 "text": "Web Application for\nRefund Claims"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -275,12 +275,73 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "39db1abe-454c-4574-8402-057e767d1de8",
+                  "title": "Repudiation of Refund Actions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "The system or an attacker later denies or disputes having processed a particular transaction, making audits difficult.",
+                  "mitigation": "Log all steps in the refund process with unique transaction IDs and timestamps.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                },
+                {
+                  "id": "1f8956eb-149d-4ad0-8c3b-c20817eb4e41",
+                  "title": "Misconfigured endpoints",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive patient or financial data could be leaked via the web app (misconfigured endpoints).",
+                  "mitigation": "Implement strong access",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "d5195915-1936-4ae7-983d-8a2ec1de6609",
+                  "title": "Denial of Service",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Attackers flood the web application or exploit resource‐intensive operations to make it unavailable.",
+                  "mitigation": "Use rate‐limiting and automated monitoring to detect and block DDoS.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                },
+                {
+                  "id": "26304ab5-2d7a-4a88-a74f-608ea579cfe3",
+                  "title": "Repudiation of Refund Actions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "A normal user finds a way to change their privileges (e.g. from ‘patient’ to ‘admin’ or from ‘employee’ to ‘super user’) by manipulating the frontend.",
+                  "mitigation": "Make a role check in the backend and not in the frontend.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
             },
             "children": [
               "7c457976-9714-4395-9f92-9af1b78cbe82"
@@ -300,8 +361,8 @@
                 "text": "Admin"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -397,9 +458,40 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "29345193-3903-4f3f-9ac8-d2d3b05dce8b",
+                  "title": "Admin Credential Theft",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker acquires admin‐level credentials (phishing or bribe), potentially changing configurations, viewing logs, or manipulating claim data.",
+                  "mitigation": "Enforce MFA and strict password policies for all admin accounts, implement Real‐time alerts for admin logins or critical actions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "8e1d2f9d-1501-4b5d-b63d-5693f3a01788",
+                  "title": "Admin Repudiation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "An Admin disclaims having performed certain high‐privilege changes or data manipulations in the system.",
+                  "mitigation": "Securely log all administrative actions, implement “four‐eyes” approval processes for critical admin changes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -528,19 +620,25 @@
                   "new": false,
                   "number": 7,
                   "score": ""
+                },
+                {
+                  "id": "b65bf986-af32-43fd-87f9-0904ef909dc9",
+                  "title": "Employee Denies Approving Fraudulent Refunds",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "An employee processes and authorises fraudulent claims or alters patient records, but later denies any involvement. Without logging and verification mechanisms, there is no evidence linking the action to the employee.",
+                  "mitigation": "Implement Audit Logs, Role-Based Access Control.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 4,
-                "repudiation": 0
+                "repudiation": 2
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -557,8 +655,8 @@
                 "text": "Doctor"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -654,9 +752,40 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "59fba4d9-a417-4ae2-a3cc-2501831c7d10",
+                  "title": "Impersonation of Doctor",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker pretends to be a registered Doctor, issuing false medical statements that could inflate claims or manipulate patient data.",
+                  "mitigation": "Strong authentication with provider identity verification.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "80e6d2b1-1b55-4d5f-a312-c8d40596fb4a",
+                  "title": "Doctor Repudiates Approved Claims",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A Doctor might deny having approved or validated a given claim/receipt, undermining the system’s trust.",
+                  "mitigation": "To mitigate repudiation, implement audit logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 2
+              }
             }
           },
           {
@@ -1404,50 +1533,6 @@
                   "name": "block"
                 },
                 "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "receive order\nfor further processing",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "receive order\nfor further processing"
-            ],
-            "id": "d6750bb8-562d-4106-a01e-094479b81add",
-            "source": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "5089b2ce-9767-4575-9727-10786e1519d5"
-            },
-            "target": {
-              "cell": "fb81911d-a997-4acf-885f-3e731169e73f",
-              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
                   "name": "block"
                 },
                 "strokeDasharray": null
@@ -1826,12 +1911,66 @@
                 "y": 180
               },
               {
-                "x": 330,
-                "y": 230
+                "x": 360,
+                "y": 260
               },
               {
                 "x": 380,
                 "y": 260
+              },
+              {
+                "x": 410,
+                "y": 280
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "receive order\nfor further processing",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "receive order\nfor further processing"
+            ],
+            "id": "d6750bb8-562d-4106-a01e-094479b81add",
+            "source": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "5089b2ce-9767-4575-9727-10786e1519d5"
+            },
+            "target": {
+              "cell": "fb81911d-a997-4acf-885f-3e731169e73f",
+              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
+            },
+            "vertices": [
+              {
+                "x": 500,
+                "y": 250
               }
             ]
           }
@@ -1840,6 +1979,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 7
+    "threatTop": 16
   }
 }
