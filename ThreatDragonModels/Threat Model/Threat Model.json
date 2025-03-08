@@ -162,13 +162,6 @@
                 "spoofing": 3,
                 "repudiation": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -423,8 +416,8 @@
                 "text": "Employees of\nthe Health\nInsurance Company"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -520,9 +513,34 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "3dac80f0-4a9c-454c-b0ec-11162f961d8e",
+                  "title": "Unauthorized Employee Account Access",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker could steal the login data of an employee (phishing) or bribe an employee. And then he can take this login and pretend to be an employee.",
+                  "mitigation": "Implement Multi-Factor Authentication (MFA) and educate employees on phishing risks",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 4,
+                "repudiation": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1149,60 +1167,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "submit receipt",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "submit receipt"
-            ],
-            "id": "6893c939-8400-41cc-995b-90c746920b40",
-            "source": {
-              "cell": "3c14fd45-2795-4c54-998e-a27a1a7b4c2a",
-              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
-            },
-            "target": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
-            },
-            "vertices": [
-              {
-                "x": 300,
-                "y": 230
-              },
-              {
-                "x": 330,
-                "y": 250
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "send receipt",
               "description": "",
               "outOfScope": false,
@@ -1766,12 +1730,116 @@
                 "y": 320
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "submit receipt",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "1868c1d5-6ab8-493a-a660-4d6131f3d31a",
+                  "title": " Manipulation of documents during transmission",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker could altering receipts or metadata to commit fraud, potentially via Man-in-the-Middle (MITM) attacks.",
+                  "mitigation": "Implement TLS encryption (HTTPS) for secure transmission, document hashing to verify integrity.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "7ce25778-eaec-4cb3-bafa-3d63e6770076",
+                  "title": "Exposure of Patient Data via Insecure Transmission",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "When a patient submits documents or personal health information to the web application, the data may be transmitted without encryption (over HTTP instead of HTTPS)",
+                  "mitigation": "Enforce HTTPS, Encrypt patient data before transmission",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "fad6a01a-1646-4bdb-9aa4-1ca85015d45d",
+                  "title": "Excessive recipe submissions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker or bot can flood the Web Application with excessive recipe submissions, either by repeatedly submitting requests manually or by automating the process using scripts.",
+                  "mitigation": "Implement rate limiting and throttling, CAPTCHAs on submission forms, web application firewall.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 3
+              }
+            },
+            "labels": [
+              "submit receipt"
+            ],
+            "id": "6893c939-8400-41cc-995b-90c746920b40",
+            "source": {
+              "cell": "3c14fd45-2795-4c54-998e-a27a1a7b4c2a",
+              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
+            },
+            "target": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
+            },
+            "vertices": [
+              {
+                "x": 260,
+                "y": 180
+              },
+              {
+                "x": 330,
+                "y": 230
+              },
+              {
+                "x": 380,
+                "y": 260
+              }
+            ]
           }
         ]
       }
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 3
+    "threatTop": 7
   }
 }
