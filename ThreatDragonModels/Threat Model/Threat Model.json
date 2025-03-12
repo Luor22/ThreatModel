@@ -332,12 +332,38 @@
                   "new": false,
                   "number": 16,
                   "score": ""
+                },
+                {
+                  "id": "5dad2ed7-2128-4852-bb01-e9f0f30800f2",
+                  "title": "User Impersonation Attacks",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker could impersonate a legitimate user if authentication mechanisms are weak. This allows unauthorized individuals to submit or view someone else’s claims.",
+                  "mitigation": "Require strong passwords, enforce multi-factor authentication, and use secure session management (HTTP-only, secure cookies).\nEnforce TLS/SSL to prevent session hijacking or credential sniffing over the network.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": ""
+                },
+                {
+                  "id": "0af6351e-2b8b-4bcd-bb3f-894ac6ccdaa0",
+                  "title": "Denial of Claim Submission or Modification",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A user or administrator could deny having submitted or edited a refund claim if the web application does not effectively link actions to specific user identities or store traceable records.",
+                  "mitigation": "Log each claim submission or modification with user ID, IP address, timestamp, and session details.\nDisallow shared accounts; each user must have their own credentials.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
+                "spoofing": 2,
                 "tampering": 1,
-                "repudiation": 0,
+                "repudiation": 1,
                 "informationDisclosure": 1,
                 "denialOfService": 1,
                 "elevationOfPrivilege": 1
@@ -345,14 +371,7 @@
             },
             "children": [
               "7c457976-9714-4395-9f92-9af1b78cbe82"
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "position": {
@@ -1167,8 +1186,8 @@
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Information disclosure",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "The Document Verification Application may handle personal or confidential information (e.g., medical details, billing data). If access controls or encryption measures are insufficient, unauthorized parties could view or intercept these sensitive documents.",
+                  "mitigation": "Use robust encryption (e.g., AES at rest, TLS in transit) for all document data.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 35,
@@ -1179,7 +1198,7 @@
                 "spoofing": 1,
                 "tampering": 1,
                 "repudiation": 1,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 1,
                 "elevationOfPrivilege": 1
               }
@@ -1913,7 +1932,22 @@
                 "x": 460,
                 "y": 190
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "trust-boundary-curve",
@@ -2190,18 +2224,6 @@
               {
                 "x": 260,
                 "y": 180
-              },
-              {
-                "x": 360,
-                "y": 260
-              },
-              {
-                "x": 380,
-                "y": 260
-              },
-              {
-                "x": 410,
-                "y": 280
               }
             ]
           },
@@ -2260,6 +2282,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 35
+    "threatTop": 37
   }
 }
