@@ -662,6 +662,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -745,7 +746,6 @@
               ]
             },
             "id": "fe3178df-caea-4db9-8c50-04aa5fbfd304",
-            "zIndex": 5,
             "data": {
               "type": "tm.Actor",
               "name": "Doctor",
@@ -802,16 +802,19 @@
                 "text": "Data"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -895,20 +898,78 @@
               ]
             },
             "id": "a1d5d49d-e777-46a8-82f1-54aa805671bb",
-            "zIndex": 6,
             "data": {
               "type": "tm.Store",
               "name": "Data",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "b7275c50-a2a4-4519-b789-5c533320f84b",
+                  "title": "Database Record Manipulation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers or malicious insiders could alter stored refund records, patient data, or billing information in the database. ",
+                  "mitigation": "Use cryptographic checksums or digital signatures for critical records so that any unauthorized modifications can be detected.\nLimit who can modify or delete records to a minimal set of trusted roles. Log every change with timestamps and user identifiers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                },
+                {
+                  "id": "15f59265-c5cc-403f-b942-ad9e8d641ca5",
+                  "title": "Untraceable Database Transactions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A user, admin, or application component might execute changes on the data server (e.g., updating patient information or refund status) without leaving sufficient evidence to link the action back to a specific identity. They could then deny responsibility if the changes have harmful consequences.",
+                  "mitigation": "Each account that connects to the database (or data service) should be uniquely identifiable; do not share generic credentials across multiple users.\nRecord transaction details (e.g., user ID, timestamp, data affected) in a tamper-evident audit log.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                },
+                {
+                  "id": "3e8b17c2-93ad-4273-bc3f-17bf6aea14ee",
+                  "title": "Sensitive Data Exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The data server may store sensitive patient records, medical billing, or payment details. If not properly secured, attackers or unauthorized insiders could access or exfiltrate confidential data.",
+                  "mitigation": "Encrypt sensitive data at rest (e.g., using transparent database encryption) and in transit (TLS/SSL connections).\nEnforce the principle of least privilege for database users and services—only grant minimal required permissions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
+                },
+                {
+                  "id": "6bce7a99-a7e3-4f99-bc3f-a76595a3623d",
+                  "title": "Resource Exhaustion on the Data Server",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker might flood the data server with excessive or malformed queries (e.g., a large number of refund data requests) to saturate CPU, memory, or I/O resources. This can slow down or crash the server, preventing legitimate transactions from being processed.",
+                  "mitigation": "Configure the database to limit the number of concurrent connections and queries from a single source or user.\nContinuously monitor query performance and detect anomalies (e.g., sudden spikes in query volume). Implement alerts and automated actions to handle suspicious surges.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             }
           },
           {
@@ -932,6 +993,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 7,
             "ports": {
               "groups": {
                 "top": {
@@ -1015,7 +1077,6 @@
               ]
             },
             "id": "00539326-15e2-4329-9d08-475e9c48d474",
-            "zIndex": 7,
             "data": {
               "type": "tm.Process",
               "name": "(Document-)\nVerification\nApplication",
@@ -1053,16 +1114,75 @@
                   "new": false,
                   "number": 19,
                   "score": ""
+                },
+                {
+                  "id": "cc6a863b-f09c-4bb4-83b4-773bd0b8167b",
+                  "title": "Impersonation of the Verification Service",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker could impersonate the Document Verification Application by exploiting weak service authentication or insecure service endpoints.",
+                  "mitigation": "Encrypt all traffic using TLS, ensuring the authenticity of the application’s endpoints via properly signed certificates.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": ""
+                },
+                {
+                  "id": "8d88cf0a-7b18-441c-874f-76a4ae83b897",
+                  "title": "Altering Verification Results",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers or malicious insiders could modify the verification outcome (e.g., marking an invalid document as valid) or change metadata (timestamps, user IDs) within the Document Verification Application.",
+                  "mitigation": "Limit who can modify verification results; log all changes for audit.\nDigitally sign or hash verification records to detect unauthorized changes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": ""
+                },
+                {
+                  "id": "78cea161-184b-42aa-b9d5-03ddc0783bb1",
+                  "title": "Denying Document Approval Actions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A verifier or administrator might deny having approved (or rejected) a document if the system does not securely link each action to a unique identity. This makes auditing and incident investigations difficult.",
+                  "mitigation": "Enforce multi-factor authentication for all users interacting with the verification interface.\nRecord user IDs, timestamps, document IDs, and relevant context for each verification event in tamper-proof logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                },
+                {
+                  "id": "dae8691f-431e-4fd8-ab4c-2866a9ac6d5f",
+                  "title": "Leaking Sensitive Document Data",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
-                "tampering": 0,
-                "repudiation": 0,
-                "informationDisclosure": 0,
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
                 "denialOfService": 1,
                 "elevationOfPrivilege": 1
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1091,6 +1211,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 8,
             "ports": {
               "groups": {
                 "top": {
@@ -1174,7 +1295,6 @@
               ]
             },
             "id": "dcc2d8c5-3183-4896-bae7-1f8661b2875c",
-            "zIndex": 8,
             "data": {
               "type": "tm.Store",
               "name": "Logfiles Web Application",
@@ -1200,21 +1320,53 @@
                   "new": false,
                   "number": 20,
                   "score": ""
+                },
+                {
+                  "id": "85c3e407-5dd3-4622-a5da-c94c17360e17",
+                  "title": "Refund Form Manipulation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker or a dishonest user could modify the refund submission form—e.g., by manipulating hidden fields or directly altering POST parameters—to request a higher refund amount or fake receipts. This compromises the integrity of the refund process.",
+                  "mitigation": "Never rely solely on client-side checks; verify all critical data on the server.  \nImplement strict validation rules to prevent injection or unexpected data formats.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                },
+                {
+                  "id": "efe8c7f2-a106-4eab-8457-d1839c12bb2d",
+                  "title": "Transaction Denial by Users",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A user could submit a refund request, then later deny having done so, claiming that someone else used their account. Without proper authentication and logging, it becomes difficult to prove who initiated the transaction.",
+                  "mitigation": "Enforce multi-factor authentication for any refund submissions to ensure only authorized users can initiate a transaction. \nLog each request with a timestamp, user ID, IP address, and session details.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                },
+                {
+                  "id": "8d0aaaa8-9ffe-461e-ac2a-afa2ca21154c",
+                  "title": "Log Server Flooding",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker could overwhelm the Log File Server with excessive log messages (e.g., by generating continuous error events), exhausting server resources or disk space, leading to slowdowns or crashes.",
+                  "mitigation": "Implement controls to cap the number of log events accepted from a single source or IP per time window. Continuously monitor log volume and configure alerts for abnormal surges, enabling timely response to a potential DoS attack.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "tampering": 0,
-                "repudiation": 0,
+                "tampering": 1,
+                "repudiation": 1,
                 "informationDisclosure": 1,
-                "denialOfService": 0
+                "denialOfService": 2
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1243,6 +1395,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 9,
             "ports": {
               "groups": {
                 "top": {
@@ -1326,7 +1479,6 @@
               ]
             },
             "id": "14484a1e-7b03-4de9-a9ef-35e6ccaf032e",
-            "zIndex": 9,
             "data": {
               "type": "tm.Store",
               "name": "Logfiles\nVerification Application",
@@ -1352,13 +1504,52 @@
                   "new": false,
                   "number": 21,
                   "score": ""
+                },
+                {
+                  "id": "f3df3ecc-e411-46fb-804f-6785aa8d5768",
+                  "title": "Refund Approval Log Manipulation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers could modify or delete log entries indicating that a refund was approved or denied. For example, someone might alter the log to show a higher refund amount or remove the record of a refund approval entirely.",
+                  "mitigation": "Use digital signatures or secure hashing to verify that log files have not been altered.\nGrant write permissions only to a dedicated logging service or highly restricted admin accounts, and monitor all changes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                },
+                {
+                  "id": "b254bce6-842a-483f-af6c-3e0573a71978",
+                  "title": "Denying Responsibility for Refund Approvals",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A user or administrator could deny having approved (or denied) a refund if the logs do not reliably associate every refund decision with a unique and authenticated identity. This might lead to disputes or difficulties in regulatory audits.",
+                  "mitigation": "Ensure all users have unique credentials; use multi-factor authentication to strengthen identity verification.\nRecord highly accurate timestamps (NTP-synced) and store context data (e.g., IP addresses, session IDs) in the logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                },
+                {
+                  "id": "bc8249d3-98de-4b80-8ac7-78c43fa13fc9",
+                  "title": "Log Server Flooding",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker could overwhelm the Log File Server with excessive log messages (e.g., by generating continuous error events), exhausting server resources or disk space, leading to slowdowns or crashes.",
+                  "mitigation": "Implement controls to cap the number of log events accepted from a single source or IP per time window. Continuously monitor log volume and configure alerts for abnormal surges, enabling timely response to a potential DoS attack.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "tampering": 0,
-                "repudiation": 0,
+                "tampering": 4,
+                "repudiation": 2,
                 "informationDisclosure": 1,
-                "denialOfService": 0
+                "denialOfService": 1
               }
             }
           },
@@ -1833,6 +2024,10 @@
             },
             "vertices": [
               {
+                "x": 410,
+                "y": 470
+              },
+              {
                 "x": 540,
                 "y": 470
               }
@@ -2065,6 +2260,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 21
+    "threatTop": 35
   }
 }
