@@ -812,13 +812,6 @@
                 "spoofing": 1,
                 "repudiation": 2
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1583,107 +1576,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "send receipt",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "send receipt"
-            ],
-            "id": "b0f63106-d600-432e-8b2e-4ace1346533f",
-            "source": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "556b6e1a-f8a2-479a-ae8a-3a9c21b6e0b6"
-            },
-            "target": {
-              "cell": "00539326-15e2-4329-9d08-475e9c48d474",
-              "port": "7c857084-c78d-4946-97cf-f8e5bb8866bb"
-            },
-            "vertices": [
-              {
-                "x": 510,
-                "y": 410
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "send order for\nfurther processing",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "send order for\nfurther processing"
-            ],
-            "id": "a9fb346e-b786-4ee4-939f-a94e92419ed6",
-            "source": {
-              "cell": "00539326-15e2-4329-9d08-475e9c48d474",
-              "port": "c4fdaeb2-22ae-4294-ad32-239c2fbe30c6"
-            },
-            "target": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "47fc1d8c-e0e4-40d9-b388-ba53e72fef29"
-            },
-            "vertices": [
-              {
-                "x": 610,
-                "y": 330
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1703,12 +1597,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2c93daa1-cd18-4a05-b21a-4ae72830e08b",
+                  "title": "Altering or Manipulating Web Application Logs",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers or malicious insiders could intercept or modify log entries sent to the Logfiles Web Application store—e.g., removing records of suspicious actions or changing timestamps and user IDs.",
+                  "mitigation": "Secure Communication (TLS/SSL)\nIntegrity Checks (Digital Signatures)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 56,
+                  "score": ""
+                },
+                {
+                  "id": "5dc61b3b-cf04-476c-b388-50ec9dd2e15a",
+                  "title": "Exposing Sensitive Data within Logs",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The logs might contain confidential or personal information (e.g., patient IDs, partial billing details, or user credentials) if not properly sanitized. Insecure storage or transmission could allow unauthorized access to this sensitive data.",
+                  "mitigation": "Encrypted Storage (AES) & Transport (SSL/TLS)\nRole-Based Access & Auditing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 57,
+                  "score": ""
+                },
+                {
+                  "id": "85d8c99b-ead7-4a3a-9fef-1d1e8e6dfc9e",
+                  "title": "Overloading the Logging Interface",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker could flood the logging endpoint with an excessive number of log entries (e.g., by generating constant error messages), consuming storage and processing resources in the Logfiles Web Application store, or causing slow performance for legitimate logging.",
+                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Alerts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 58,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "store Logs"
@@ -1733,105 +1672,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "manage claims",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "manage claims"
-            ],
-            "id": "0b31175c-3248-4fd1-a320-ff8a16923aca",
-            "source": {
-              "cell": "69cc2e39-5cbf-4e31-9a00-13565fec46cb",
-              "port": "4f503818-90cc-46a2-9d9c-41065744a206"
-            },
-            "target": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": "block"
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "store/retrieve claims data",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": true,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "store/retrieve claims data"
-            ],
-            "id": "b07833d0-2e29-4157-98db-37e9bc106c25",
-            "source": {
-              "x": 500,
-              "y": 290
-            },
-            "target": {
-              "cell": "a1d5d49d-e777-46a8-82f1-54aa805671bb",
-              "port": "685dc5ca-2510-4883-bcd3-8994c3db630c"
-            },
-            "vertices": [
-              {
-                "x": 680,
-                "y": 290
-              },
-              {
-                "x": 700,
-                "y": 390
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1851,12 +1693,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "3723fbef-dd29-4cdc-823c-12496533bfda",
+                  "title": "Manipulating Receipt Validation Data",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker (or a malicious intermediary) could intercept and alter the receipt validation request or response (e.g., changing the diagnosis code, treatment details, or the validity status) before it reaches the Doctor or the Web Application, compromising data integrity.",
+                  "mitigation": "Secure Communication (TLS/SSL)\nCheck message integrity with Hash Signatures",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 44,
+                  "score": ""
+                },
+                {
+                  "id": "a77ea575-164e-4204-8ca8-9d809fcd5094",
+                  "title": "Leaking Patient or Doctor Data During Validation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive patient or medical information (e.g., personal health data or doctor’s personal details) might be revealed if the validation process and associated data flows are not properly secured. This could expose confidential records to unauthorized individuals.",
+                  "mitigation": "Encrypted Storage (AES) & Transfer (SSL/TLS)\nThe Doctor should only access records relevant to their own patients or assigned cases. \nAudit all access events.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 45,
+                  "score": ""
+                },
+                {
+                  "id": "a30247f0-4e76-4133-a737-8314b6758e87",
+                  "title": "Excessive Receipt Validation Requests",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker or automated bot could overload the Doctor’s validation endpoint with repeated validation requests, overwhelming the system’s capacity and delaying legitimate validations.",
+                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Alerting",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 46,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "validate receipt"
@@ -1977,7 +1864,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1997,12 +1885,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "08a659d7-265a-4673-b257-2a85e18b0363",
+                  "title": "Altering or Manipulating Verification Logs",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers or malicious insiders could intercept and change log entries from the Verification Application before they are stored, concealing evidence of unauthorized or fraudulent document verifications (e.g., altering timestamps, user IDs, or verification outcomes).",
+                  "mitigation": "Strict Access Controls\nDigital Signatures\nSecure Transport (TLS/SSL)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 59,
+                  "score": ""
+                },
+                {
+                  "id": "55b51e97-497e-4813-88f6-38fd7d35b5dc",
+                  "title": "Exposing Sensitive Verification Data in Logs",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Verification logs may contain sensitive document information (e.g., personal patient details, document IDs, or partial medical data). If logs are stored or transferred insecurely, unauthorized individuals could access and exploit this data.",
+                  "mitigation": "Role-Based Permissions & Auditing\nEncryption at Rest (AES) & In Transit (SSL/TLS)\nLog only necessary information",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 60,
+                  "score": ""
+                },
+                {
+                  "id": "5c743f48-8632-4106-b70d-677879b24d13",
+                  "title": "Overloading the Verification Log Storage",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker could generate a massive volume of verification events (e.g., repeatedly requesting document checks) or send numerous log entries in quick succession, flooding the Logging system and potentially causing it to run out of storage or crash.",
+                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Automated Alerts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 61,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "store Logs"
@@ -2021,7 +1954,17 @@
                 "x": 500,
                 "y": 550
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "trust-boundary-curve",
@@ -2223,7 +2166,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2243,12 +2187,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9c601fb6-d9d9-4ec7-9353-9190cb934211",
+                  "title": "Altering Refund Orders During Transmission",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers or malicious insiders could intercept and modify the refund processing data (e.g., changing claim amounts, patient details) as the Web Application sends orders to employees of the health organization. This compromises data integrity and can lead to incorrect processing or fraud.",
+                  "mitigation": "Secure Communication Channel (TLS/SSL)\nUse cryptographic signatures to ensure that received orders have not been tampered.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                },
+                {
+                  "id": "2fcba990-ea6f-4bf4-9ddc-3df51c11f388",
+                  "title": "Unauthorized Access to Confidential Order Details",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive claim data and personal health information could be exposed during order transmission or at rest if the communication and storage mechanisms are not properly secured. Attackers, or employees with excessive privileges, might view confidential patient data.",
+                  "mitigation": "Encryption at Rest(AES) & in Transit (HTTPS/TLS)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": ""
+                },
+                {
+                  "id": "ae6fb944-8d10-4796-9fcd-3129d99da08a",
+                  "title": "Overloading the Order Transmission Channel",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker could flood the system with redundant or malicious requests, overwhelming the interface that relays orders from the Web Application to the health organization’s employees. This disrupts normal operations, causing delays in legitimate order processing.",
+                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Alerting",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 43,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "receive order\nfor further processing"
@@ -2262,10 +2251,392 @@
               "cell": "fb81911d-a997-4acf-885f-3e731169e73f",
               "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
             },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "manage claims",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "b4a5543d-22d4-4625-abea-1ca26b56f345",
+                  "title": "Unauthorized Modification of Claim Management Requests",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker could intercept and alter the data flowing between the Admin and the Web Application (e.g., changing claim statuses, adjusting approved refund amounts) if the channel is not adequately protected or if inputs are not verified on the server side.",
+                  "mitigation": "Encrypt all traffic between the Admin interface and the Web Application to prevent interception and manipulation.\nValidate all incoming requests on the server side.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": ""
+                },
+                {
+                  "id": "d518064e-2516-4868-be0b-f20692583473",
+                  "title": "Leaking Sensitive Claim Data During Management",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "While the Admin manages claims, sensitive data (patient details, financial amounts) could be exposed if the flow is unencrypted or if access controls are poorly enforced. Attackers could eavesdrop or exploit misconfigurations to obtain confidential information.",
+                  "mitigation": "Use HTTPS (TLS/SSL) to secure data in transit\nStrict authentication for the admin",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": ""
+                },
+                {
+                  "id": "d7b5200e-384e-4ac2-858a-96f2e191f58c",
+                  "title": "Flooding the Admin Claim Management",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker could send a high volume of requests or intentionally malformed requests to overwhelm the claim functionality, blocking the Admin from performing legitimate operations ",
+                  "mitigation": "Implement request throttling and connection limits to prevent a single IP or user from overwhelming the service.\nContinuously monitor incoming requests and generate alerts for abnormal usage patterns that may indicate a DoS attack.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 2
+              }
+            },
+            "labels": [
+              "manage claims"
+            ],
+            "id": "0b31175c-3248-4fd1-a320-ff8a16923aca",
+            "source": {
+              "cell": "69cc2e39-5cbf-4e31-9a00-13565fec46cb",
+              "port": "4f503818-90cc-46a2-9d9c-41065744a206"
+            },
+            "target": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "store/retrieve claims data",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "e32b2918-4346-419d-b043-f02c2239e973",
+                  "title": "Altering Claims Records in Transit or at Rest",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker or unauthorized user could modify data (e.g., change claim amounts, patient IDs) while it is being stored or retrieved. This undermines the integrity of the system and can lead to fraudulent payouts or confusion in claim processing.",
+                  "mitigation": "Secure Database Connection with TLS\nCryptographic Integrity Checks with hashing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 47,
+                  "score": ""
+                },
+                {
+                  "id": "4cecdd73-a3f0-4ffc-aead-8ca2da400b29",
+                  "title": "Unauthorized Access to Sensitive Claims Data",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The data store contains personal and financial information about patients and their refund claims. If access controls or encryption are lax, attackers or unauthorized insiders could read or exfiltrate this sensitive data.",
+                  "mitigation": "Encryption at Rest AES\nLeast privilege\nMonitoring & Auditing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 48,
+                  "score": ""
+                },
+                {
+                  "id": "c38c7ecd-fd7c-47d9-a76e-8037b1e5664b",
+                  "title": "Overwhelming the Claims Database",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Attackers might flood the data store with excessive or malformed queries related to claims, consuming CPU, memory, or I/O resources. This could degrade performance or render the database inaccessible, preventing legitimate claim processing.",
+                  "mitigation": "Rate Limiting & Throttling\nReal-Time Monitoring & Alerting",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 49,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "store/retrieve claims data"
+            ],
+            "id": "b07833d0-2e29-4157-98db-37e9bc106c25",
+            "source": {
+              "x": 500,
+              "y": 290
+            },
+            "target": {
+              "cell": "a1d5d49d-e777-46a8-82f1-54aa805671bb",
+              "port": "685dc5ca-2510-4883-bcd3-8994c3db630c"
+            },
             "vertices": [
               {
-                "x": 500,
-                "y": 250
+                "x": 680,
+                "y": 290
+              },
+              {
+                "x": 700,
+                "y": 390
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "send order for\nfurther processing",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "f0480805-b818-430b-bd63-f2169474da5c",
+                  "title": "Manipulating Verification Requests or Responses",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker or malicious intermediary could intercept and alter the data sent from the Web Application Refund Claims to the Document Verification Application—e.g., changing the document IDs, modifying the verification status, or injecting bogus data.\n",
+                  "mitigation": "Message Integrity Checks (Digital Signatures)\nSecure Communication (TLS/SSL)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 50,
+                  "score": ""
+                },
+                {
+                  "id": "92e2514d-f7d7-40ac-962a-81fc14ec4941",
+                  "title": "Exposing Sensitive Order Details",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The data exchanged between the two applications may include confidential information (e.g., patient identifiers, claim amounts, medical document references). Without proper safeguards, this data could be exposed to unauthorized parties.",
+                  "mitigation": "Encryption at Rest (AES) and in Transit (SSL/TLS)\nSend only minimal necessary data",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 51,
+                  "score": ""
+                },
+                {
+                  "id": "aece0d11-cd99-4236-aa70-3931c534a4db",
+                  "title": "Flooding the Document Verification Workflow",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker might overwhelm the integration point between the Web Application Refund Claims and the Document Verification Application by submitting excessive or repeated requests, causing slowdowns or crashes that stop legitimate verification processes.",
+                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Alerting",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 52,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "send order for\nfurther processing"
+            ],
+            "id": "a9fb346e-b786-4ee4-939f-a94e92419ed6",
+            "source": {
+              "cell": "00539326-15e2-4329-9d08-475e9c48d474",
+              "port": "c4fdaeb2-22ae-4294-ad32-239c2fbe30c6"
+            },
+            "target": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "47fc1d8c-e0e4-40d9-b388-ba53e72fef29"
+            },
+            "vertices": [
+              {
+                "x": 582.5,
+                "y": 460
+              },
+              {
+                "x": 610,
+                "y": 330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "send receipt",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "877acad2-d2f6-4955-a34b-c02846e6715f",
+                  "title": "Altering Receipt Data in Transit",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers or malicious intermediaries could intercept the receipt being sent (e.g., an uploaded PDF or data payload) and modify it (altering invoice amounts, patient information) before it reaches the Document Verification Application. This leads to fraudulent data inputs.",
+                  "mitigation": "Access Control & Authentication\nIntegrity Checks (Hashing or Digital Signatures)\nEncrypted Communication (TLS/SSL)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 53,
+                  "score": ""
+                },
+                {
+                  "id": "54e83f52-75f0-4557-84e6-c2a51fddf105",
+                  "title": "Exposing Confidential Receipt Details",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "If the receipt contains sensitive data (e.g., patient info, billing details), an insecure transmission or insufficient access controls may allow unauthorized individuals to view or capture the information.",
+                  "mitigation": "Encryption at Rest (AES) & In Transit (SSL/TLS)\nMinimal Data Transfer\nStrict Access Controls",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 54,
+                  "score": ""
+                },
+                {
+                  "id": "73a3ec8c-f2d7-4d70-94cb-a3500ef5506f",
+                  "title": "Flooding the Verification Application with Receipt Submissions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker may overwhelm the Document Verification Application by sending excessive or invalid receipt submissions, exhausting processing capacity or storage, causing delays or failures in handling legitimate receipts.",
+                  "mitigation": "Real-Time Monitoring & Alerts\nRate Limiting & Throttling",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 55,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "send receipt"
+            ],
+            "id": "b0f63106-d600-432e-8b2e-4ace1346533f",
+            "source": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "556b6e1a-f8a2-479a-ae8a-3a9c21b6e0b6"
+            },
+            "target": {
+              "cell": "00539326-15e2-4329-9d08-475e9c48d474",
+              "port": "7c857084-c78d-4946-97cf-f8e5bb8866bb"
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": 410
               }
             ]
           }
@@ -2274,6 +2645,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 37
+    "threatTop": 61
   }
 }
