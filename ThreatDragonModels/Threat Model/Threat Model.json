@@ -1669,102 +1669,6 @@
             ]
           },
           {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": "block"
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "validate receipt",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": true,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "3723fbef-dd29-4cdc-823c-12496533bfda",
-                  "title": "Manipulating Receipt Validation Data",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "An attacker (or a malicious intermediary) could intercept and alter the receipt validation request or response (e.g., changing the diagnosis code, treatment details, or the validity status) before it reaches the Doctor or the Web Application, compromising data integrity.",
-                  "mitigation": "Secure Communication (TLS/SSL)\nCheck message integrity with Hash Signatures",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 44,
-                  "score": ""
-                },
-                {
-                  "id": "a77ea575-164e-4204-8ca8-9d809fcd5094",
-                  "title": "Leaking Patient or Doctor Data During Validation",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "Sensitive patient or medical information (e.g., personal health data or doctor’s personal details) might be revealed if the validation process and associated data flows are not properly secured. This could expose confidential records to unauthorized individuals.",
-                  "mitigation": "Encrypted Storage (AES) & Transfer (SSL/TLS)\nThe Doctor should only access records relevant to their own patients or assigned cases. \nAudit all access events.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 45,
-                  "score": ""
-                },
-                {
-                  "id": "a30247f0-4e76-4133-a737-8314b6758e87",
-                  "title": "Excessive Receipt Validation Requests",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Denial of service",
-                  "description": "An attacker or automated bot could overload the Doctor’s validation endpoint with repeated validation requests, overwhelming the system’s capacity and delaying legitimate validations.",
-                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Alerting",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 46,
-                  "score": ""
-                }
-              ],
-              "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
-              }
-            },
-            "labels": [
-              "validate receipt"
-            ],
-            "id": "24bdd4ce-e41a-4205-a936-11e1a301b8f6",
-            "source": {
-              "cell": "fe3178df-caea-4db9-8c50-04aa5fbfd304",
-              "port": "76566b07-92e4-471b-9724-233a0f5666b7"
-            },
-            "target": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "47fc1d8c-e0e4-40d9-b388-ba53e72fef29"
-            },
-            "vertices": [
-              {
-                "x": 620,
-                "y": 240
-              }
-            ]
-          },
-          {
             "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
@@ -2077,284 +1981,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "submit receipt",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "1868c1d5-6ab8-493a-a660-4d6131f3d31a",
-                  "title": " Manipulation of documents during transmission",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "An attacker could altering receipts or metadata to commit fraud, potentially via Man-in-the-Middle (MITM) attacks.",
-                  "mitigation": "Implement TLS encryption (HTTPS) for secure transmission, document hashing to verify integrity.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 4,
-                  "score": ""
-                },
-                {
-                  "id": "7ce25778-eaec-4cb3-bafa-3d63e6770076",
-                  "title": "Exposure of Patient Data via Insecure Transmission",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "When a patient submits documents or personal health information to the web application, the data may be transmitted without encryption (over HTTP instead of HTTPS)",
-                  "mitigation": "Enforce HTTPS, Encrypt patient data before transmission",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 5,
-                  "score": ""
-                },
-                {
-                  "id": "fad6a01a-1646-4bdb-9aa4-1ca85015d45d",
-                  "title": "Excessive recipe submissions",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Denial of service",
-                  "description": "An attacker or bot can flood the Web Application with excessive recipe submissions, either by repeatedly submitting requests manually or by automating the process using scripts.",
-                  "mitigation": "Implement rate limiting and throttling, CAPTCHAs on submission forms, web application firewall.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 6,
-                  "score": ""
-                }
-              ],
-              "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 3
-              }
-            },
-            "labels": [
-              "submit receipt"
-            ],
-            "id": "6893c939-8400-41cc-995b-90c746920b40",
-            "source": {
-              "cell": "3c14fd45-2795-4c54-998e-a27a1a7b4c2a",
-              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
-            },
-            "target": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
-            },
-            "vertices": [
-              {
-                "x": 260,
-                "y": 180
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "receive order\nfor further processing",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "9c601fb6-d9d9-4ec7-9353-9190cb934211",
-                  "title": "Altering Refund Orders During Transmission",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "Attackers or malicious insiders could intercept and modify the refund processing data (e.g., changing claim amounts, patient details) as the Web Application sends orders to employees of the health organization. This compromises data integrity and can lead to incorrect processing or fraud.",
-                  "mitigation": "Secure Communication Channel (TLS/SSL)\nUse cryptographic signatures to ensure that received orders have not been tampered.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 41,
-                  "score": ""
-                },
-                {
-                  "id": "2fcba990-ea6f-4bf4-9ddc-3df51c11f388",
-                  "title": "Unauthorized Access to Confidential Order Details",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "Sensitive claim data and personal health information could be exposed during order transmission or at rest if the communication and storage mechanisms are not properly secured. Attackers, or employees with excessive privileges, might view confidential patient data.",
-                  "mitigation": "Encryption at Rest(AES) & in Transit (HTTPS/TLS)",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 42,
-                  "score": ""
-                },
-                {
-                  "id": "ae6fb944-8d10-4796-9fcd-3129d99da08a",
-                  "title": "Overloading the Order Transmission Channel",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Denial of service",
-                  "description": "An attacker could flood the system with redundant or malicious requests, overwhelming the interface that relays orders from the Web Application to the health organization’s employees. This disrupts normal operations, causing delays in legitimate order processing.",
-                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Alerting",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 43,
-                  "score": ""
-                }
-              ],
-              "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
-              }
-            },
-            "labels": [
-              "receive order\nfor further processing"
-            ],
-            "id": "d6750bb8-562d-4106-a01e-094479b81add",
-            "source": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "5089b2ce-9767-4575-9727-10786e1519d5"
-            },
-            "target": {
-              "cell": "fb81911d-a997-4acf-885f-3e731169e73f",
-              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "manage claims",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "b4a5543d-22d4-4625-abea-1ca26b56f345",
-                  "title": "Unauthorized Modification of Claim Management Requests",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "An attacker could intercept and alter the data flowing between the Admin and the Web Application (e.g., changing claim statuses, adjusting approved refund amounts) if the channel is not adequately protected or if inputs are not verified on the server side.",
-                  "mitigation": "Encrypt all traffic between the Admin interface and the Web Application to prevent interception and manipulation.\nValidate all incoming requests on the server side.\n",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 38,
-                  "score": ""
-                },
-                {
-                  "id": "d518064e-2516-4868-be0b-f20692583473",
-                  "title": "Leaking Sensitive Claim Data During Management",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "While the Admin manages claims, sensitive data (patient details, financial amounts) could be exposed if the flow is unencrypted or if access controls are poorly enforced. Attackers could eavesdrop or exploit misconfigurations to obtain confidential information.",
-                  "mitigation": "Use HTTPS (TLS/SSL) to secure data in transit\nStrict authentication for the admin",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 39,
-                  "score": ""
-                },
-                {
-                  "id": "d7b5200e-384e-4ac2-858a-96f2e191f58c",
-                  "title": "Flooding the Admin Claim Management",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Denial of service",
-                  "description": "An attacker could send a high volume of requests or intentionally malformed requests to overwhelm the claim functionality, blocking the Admin from performing legitimate operations ",
-                  "mitigation": "Implement request throttling and connection limits to prevent a single IP or user from overwhelming the service.\nContinuously monitor incoming requests and generate alerts for abnormal usage patterns that may indicate a DoS attack.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 40,
-                  "score": ""
-                }
-              ],
-              "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 2
-              }
-            },
-            "labels": [
-              "manage claims"
-            ],
-            "id": "0b31175c-3248-4fd1-a320-ff8a16923aca",
-            "source": {
-              "cell": "69cc2e39-5cbf-4e31-9a00-13565fec46cb",
-              "port": "4f503818-90cc-46a2-9d9c-41065744a206"
-            },
-            "target": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "send receipt",
               "description": "",
               "outOfScope": false,
@@ -2629,6 +2255,390 @@
                 "y": 390
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "manage claims",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "b4a5543d-22d4-4625-abea-1ca26b56f345",
+                  "title": "Unauthorized Modification of Claim Management Requests",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker could intercept and alter the data flowing between the Admin and the Web Application (e.g., changing claim statuses, adjusting approved refund amounts) if the channel is not adequately protected or if inputs are not verified on the server side.",
+                  "mitigation": "Encrypt all traffic between the Admin interface and the Web Application to prevent interception and manipulation.\nValidate all incoming requests on the server side.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": ""
+                },
+                {
+                  "id": "d518064e-2516-4868-be0b-f20692583473",
+                  "title": "Leaking Sensitive Claim Data During Management",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "While the Admin manages claims, sensitive data (patient details, financial amounts) could be exposed if the flow is unencrypted or if access controls are poorly enforced. Attackers could eavesdrop or exploit misconfigurations to obtain confidential information.",
+                  "mitigation": "Use HTTPS (TLS/SSL) to secure data in transit\nStrict authentication for the admin",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": ""
+                },
+                {
+                  "id": "d7b5200e-384e-4ac2-858a-96f2e191f58c",
+                  "title": "Flooding the Admin Claim Management",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker could send a high volume of requests or intentionally malformed requests to overwhelm the claim functionality, blocking the Admin from performing legitimate operations ",
+                  "mitigation": "Implement request throttling and connection limits to prevent a single IP or user from overwhelming the service.\nContinuously monitor incoming requests and generate alerts for abnormal usage patterns that may indicate a DoS attack.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 2
+              }
+            },
+            "labels": [
+              "manage claims"
+            ],
+            "id": "0b31175c-3248-4fd1-a320-ff8a16923aca",
+            "source": {
+              "cell": "69cc2e39-5cbf-4e31-9a00-13565fec46cb",
+              "port": "4f503818-90cc-46a2-9d9c-41065744a206"
+            },
+            "target": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "submit receipt",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "1868c1d5-6ab8-493a-a660-4d6131f3d31a",
+                  "title": " Manipulation of documents during transmission",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker could altering receipts or metadata to commit fraud, potentially via Man-in-the-Middle (MITM) attacks.",
+                  "mitigation": "Implement TLS encryption (HTTPS) for secure transmission, document hashing to verify integrity.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "7ce25778-eaec-4cb3-bafa-3d63e6770076",
+                  "title": "Exposure of Patient Data via Insecure Transmission",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "When a patient submits documents or personal health information to the web application, the data may be transmitted without encryption (over HTTP instead of HTTPS)",
+                  "mitigation": "Enforce HTTPS, Encrypt patient data before transmission",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "fad6a01a-1646-4bdb-9aa4-1ca85015d45d",
+                  "title": "Excessive recipe submissions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker or bot can flood the Web Application with excessive recipe submissions, either by repeatedly submitting requests manually or by automating the process using scripts.",
+                  "mitigation": "Implement rate limiting and throttling, CAPTCHAs on submission forms, web application firewall.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 3
+              }
+            },
+            "labels": [
+              "submit receipt"
+            ],
+            "id": "6893c939-8400-41cc-995b-90c746920b40",
+            "source": {
+              "cell": "3c14fd45-2795-4c54-998e-a27a1a7b4c2a",
+              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
+            },
+            "target": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "fdc461fc-27c6-40c7-b11a-b217d14bbe76"
+            },
+            "vertices": [
+              {
+                "x": 260,
+                "y": 180
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "validate receipt",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "3723fbef-dd29-4cdc-823c-12496533bfda",
+                  "title": "Manipulating Receipt Validation Data",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker (or a malicious intermediary) could intercept and alter the receipt validation request or response (e.g., changing the diagnosis code, treatment details, or the validity status) before it reaches the Doctor or the Web Application, compromising data integrity.",
+                  "mitigation": "Secure Communication (TLS/SSL)\nCheck message integrity with Hash Signatures",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 44,
+                  "score": ""
+                },
+                {
+                  "id": "a77ea575-164e-4204-8ca8-9d809fcd5094",
+                  "title": "Leaking Patient or Doctor Data During Validation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive patient or medical information (e.g., personal health data or doctor’s personal details) might be revealed if the validation process and associated data flows are not properly secured. This could expose confidential records to unauthorized individuals.",
+                  "mitigation": "Encrypted Storage (AES) & Transfer (SSL/TLS)\nThe Doctor should only access records relevant to their own patients or assigned cases. \nAudit all access events.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 45,
+                  "score": ""
+                },
+                {
+                  "id": "a30247f0-4e76-4133-a737-8314b6758e87",
+                  "title": "Excessive Receipt Validation Requests",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker or automated bot could overload the Doctor’s validation endpoint with repeated validation requests, overwhelming the system’s capacity and delaying legitimate validations.",
+                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Alerting",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 46,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "validate receipt"
+            ],
+            "id": "24bdd4ce-e41a-4205-a936-11e1a301b8f6",
+            "source": {
+              "cell": "fe3178df-caea-4db9-8c50-04aa5fbfd304",
+              "port": "76566b07-92e4-471b-9724-233a0f5666b7"
+            },
+            "target": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "47fc1d8c-e0e4-40d9-b388-ba53e72fef29"
+            },
+            "vertices": [
+              {
+                "x": 620,
+                "y": 240
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "receive order\nfor further processing",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "9c601fb6-d9d9-4ec7-9353-9190cb934211",
+                  "title": "Altering Refund Orders During Transmission",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attackers or malicious insiders could intercept and modify the refund processing data (e.g., changing claim amounts, patient details) as the Web Application sends orders to employees of the health organization. This compromises data integrity and can lead to incorrect processing or fraud.",
+                  "mitigation": "Secure Communication Channel (TLS/SSL)\nUse cryptographic signatures to ensure that received orders have not been tampered.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                },
+                {
+                  "id": "2fcba990-ea6f-4bf4-9ddc-3df51c11f388",
+                  "title": "Unauthorized Access to Confidential Order Details",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive claim data and personal health information could be exposed during order transmission or at rest if the communication and storage mechanisms are not properly secured. Attackers, or employees with excessive privileges, might view confidential patient data.",
+                  "mitigation": "Encryption at Rest(AES) & in Transit (HTTPS/TLS)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": ""
+                },
+                {
+                  "id": "ae6fb944-8d10-4796-9fcd-3129d99da08a",
+                  "title": "Overloading the Order Transmission Channel",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An attacker could flood the system with redundant or malicious requests, overwhelming the interface that relays orders from the Web Application to the health organization’s employees. This disrupts normal operations, causing delays in legitimate order processing.",
+                  "mitigation": "Rate Limiting & Throttling\nMonitoring & Alerting",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 43,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "receive order\nfor further processing"
+            ],
+            "id": "d6750bb8-562d-4106-a01e-094479b81add",
+            "source": {
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "5089b2ce-9767-4575-9727-10786e1519d5"
+            },
+            "target": {
+              "cell": "fb81911d-a997-4acf-885f-3e731169e73f",
+              "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
+            },
+            "vertices": [],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           }
         ]
       }
