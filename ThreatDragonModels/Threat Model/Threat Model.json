@@ -1202,13 +1202,6 @@
                 "denialOfService": 1,
                 "elevationOfPrivilege": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -2351,7 +2344,7 @@
                   "name": "block"
                 },
                 "sourceMarker": {
-                  "name": "block"
+                  "name": ""
                 },
                 "strokeDasharray": null
               }
@@ -2362,53 +2355,53 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "store/retrieve claims data",
+              "name": "send receipt",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
-              "isBidirectional": true,
+              "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [
                 {
-                  "id": "e32b2918-4346-419d-b043-f02c2239e973",
-                  "title": "Altering Claims Records in Transit or at Rest",
+                  "id": "877acad2-d2f6-4955-a34b-c02846e6715f",
+                  "title": "Altering Receipt Data in Transit",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Tampering",
-                  "description": "An attacker or unauthorized user could modify data (e.g., change claim amounts, patient IDs) while it is being stored or retrieved. This undermines the integrity of the system and can lead to fraudulent payouts or confusion in claim processing.",
-                  "mitigation": "Secure Database Connection with TLS\nCryptographic Integrity Checks with hashing",
+                  "description": "Attackers or malicious intermediaries could intercept the receipt being sent (e.g., an uploaded PDF or data payload) and modify it (altering invoice amounts, patient information) before it reaches the Document Verification Application. This leads to fraudulent data inputs.",
+                  "mitigation": "Access Control & Authentication\nIntegrity Checks (Hashing or Digital Signatures)\nEncrypted Communication (TLS/SSL)",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 47,
+                  "number": 53,
                   "score": ""
                 },
                 {
-                  "id": "4cecdd73-a3f0-4ffc-aead-8ca2da400b29",
-                  "title": "Unauthorized Access to Sensitive Claims Data",
+                  "id": "54e83f52-75f0-4557-84e6-c2a51fddf105",
+                  "title": "Exposing Confidential Receipt Details",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Information disclosure",
-                  "description": "The data store contains personal and financial information about patients and their refund claims. If access controls or encryption are lax, attackers or unauthorized insiders could read or exfiltrate this sensitive data.",
-                  "mitigation": "Encryption at Rest AES\nLeast privilege\nMonitoring & Auditing",
+                  "description": "If the receipt contains sensitive data (e.g., patient info, billing details), an insecure transmission or insufficient access controls may allow unauthorized individuals to view or capture the information.",
+                  "mitigation": "Encryption at Rest (AES) & In Transit (SSL/TLS)\nMinimal Data Transfer\nStrict Access Controls",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 48,
+                  "number": 54,
                   "score": ""
                 },
                 {
-                  "id": "c38c7ecd-fd7c-47d9-a76e-8037b1e5664b",
-                  "title": "Overwhelming the Claims Database",
+                  "id": "73a3ec8c-f2d7-4d70-94cb-a3500ef5506f",
+                  "title": "Flooding the Verification Application with Receipt Submissions",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Denial of service",
-                  "description": "Attackers might flood the data store with excessive or malformed queries related to claims, consuming CPU, memory, or I/O resources. This could degrade performance or render the database inaccessible, preventing legitimate claim processing.",
-                  "mitigation": "Rate Limiting & Throttling\nReal-Time Monitoring & Alerting",
+                  "description": "An attacker may overwhelm the Document Verification Application by sending excessive or invalid receipt submissions, exhausting processing capacity or storage, causing delays or failures in handling legitimate receipts.",
+                  "mitigation": "Real-Time Monitoring & Alerts\nRate Limiting & Throttling",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 49,
+                  "number": 55,
                   "score": ""
                 }
               ],
@@ -2419,25 +2412,21 @@
               }
             },
             "labels": [
-              "store/retrieve claims data"
+              "send receipt"
             ],
-            "id": "b07833d0-2e29-4157-98db-37e9bc106c25",
+            "id": "b0f63106-d600-432e-8b2e-4ace1346533f",
             "source": {
-              "x": 500,
-              "y": 290
+              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
+              "port": "556b6e1a-f8a2-479a-ae8a-3a9c21b6e0b6"
             },
             "target": {
-              "cell": "a1d5d49d-e777-46a8-82f1-54aa805671bb",
-              "port": "685dc5ca-2510-4883-bcd3-8994c3db630c"
+              "cell": "00539326-15e2-4329-9d08-475e9c48d474",
+              "port": "7c857084-c78d-4946-97cf-f8e5bb8866bb"
             },
             "vertices": [
               {
-                "x": 680,
-                "y": 290
-              },
-              {
-                "x": 700,
-                "y": 390
+                "x": 510,
+                "y": 410
               }
             ]
           },
@@ -2551,7 +2540,7 @@
                   "name": "block"
                 },
                 "sourceMarker": {
-                  "name": ""
+                  "name": "block"
                 },
                 "strokeDasharray": null
               }
@@ -2562,53 +2551,53 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "send receipt",
+              "name": "store/retrieve claims data",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
-              "isBidirectional": false,
+              "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [
                 {
-                  "id": "877acad2-d2f6-4955-a34b-c02846e6715f",
-                  "title": "Altering Receipt Data in Transit",
+                  "id": "e32b2918-4346-419d-b043-f02c2239e973",
+                  "title": "Altering Claims Records in Transit or at Rest",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Tampering",
-                  "description": "Attackers or malicious intermediaries could intercept the receipt being sent (e.g., an uploaded PDF or data payload) and modify it (altering invoice amounts, patient information) before it reaches the Document Verification Application. This leads to fraudulent data inputs.",
-                  "mitigation": "Access Control & Authentication\nIntegrity Checks (Hashing or Digital Signatures)\nEncrypted Communication (TLS/SSL)",
+                  "description": "An attacker or unauthorized user could modify data (e.g., change claim amounts, patient IDs) while it is being stored or retrieved. This undermines the integrity of the system and can lead to fraudulent payouts or confusion in claim processing.",
+                  "mitigation": "Secure Database Connection with TLS\nCryptographic Integrity Checks with hashing",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 53,
+                  "number": 47,
                   "score": ""
                 },
                 {
-                  "id": "54e83f52-75f0-4557-84e6-c2a51fddf105",
-                  "title": "Exposing Confidential Receipt Details",
+                  "id": "4cecdd73-a3f0-4ffc-aead-8ca2da400b29",
+                  "title": "Unauthorized Access to Sensitive Claims Data",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Information disclosure",
-                  "description": "If the receipt contains sensitive data (e.g., patient info, billing details), an insecure transmission or insufficient access controls may allow unauthorized individuals to view or capture the information.",
-                  "mitigation": "Encryption at Rest (AES) & In Transit (SSL/TLS)\nMinimal Data Transfer\nStrict Access Controls",
+                  "description": "The data store contains personal and financial information about patients and their refund claims. If access controls or encryption are lax, attackers or unauthorized insiders could read or exfiltrate this sensitive data.",
+                  "mitigation": "Encryption at Rest AES\nLeast privilege\nMonitoring & Auditing",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 54,
+                  "number": 48,
                   "score": ""
                 },
                 {
-                  "id": "73a3ec8c-f2d7-4d70-94cb-a3500ef5506f",
-                  "title": "Flooding the Verification Application with Receipt Submissions",
+                  "id": "c38c7ecd-fd7c-47d9-a76e-8037b1e5664b",
+                  "title": "Overwhelming the Claims Database",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Denial of service",
-                  "description": "An attacker may overwhelm the Document Verification Application by sending excessive or invalid receipt submissions, exhausting processing capacity or storage, causing delays or failures in handling legitimate receipts.",
-                  "mitigation": "Real-Time Monitoring & Alerts\nRate Limiting & Throttling",
+                  "description": "Attackers might flood the data store with excessive or malformed queries related to claims, consuming CPU, memory, or I/O resources. This could degrade performance or render the database inaccessible, preventing legitimate claim processing.",
+                  "mitigation": "Rate Limiting & Throttling\nReal-Time Monitoring & Alerting",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 55,
+                  "number": 49,
                   "score": ""
                 }
               ],
@@ -2619,21 +2608,25 @@
               }
             },
             "labels": [
-              "send receipt"
+              "store/retrieve claims data"
             ],
-            "id": "b0f63106-d600-432e-8b2e-4ace1346533f",
+            "id": "b07833d0-2e29-4157-98db-37e9bc106c25",
             "source": {
-              "cell": "ec4bffdb-9873-4849-acac-255467c0860e",
-              "port": "556b6e1a-f8a2-479a-ae8a-3a9c21b6e0b6"
+              "x": 500,
+              "y": 290
             },
             "target": {
-              "cell": "00539326-15e2-4329-9d08-475e9c48d474",
-              "port": "7c857084-c78d-4946-97cf-f8e5bb8866bb"
+              "cell": "a1d5d49d-e777-46a8-82f1-54aa805671bb",
+              "port": "685dc5ca-2510-4883-bcd3-8994c3db630c"
             },
             "vertices": [
               {
-                "x": 510,
-                "y": 410
+                "x": 680,
+                "y": 290
+              },
+              {
+                "x": 700,
+                "y": 390
               }
             ]
           }
