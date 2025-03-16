@@ -283,12 +283,12 @@
               "threats": [
                 {
                   "id": "39db1abe-454c-4574-8402-057e767d1de8",
-                  "title": "Repudiation of Refund Actions",
+                  "title": "Refund Form Manipulation",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Tampering",
-                  "description": "The system or an attacker later denies or disputes having processed a particular transaction, making audits difficult.",
-                  "mitigation": "Log all steps in the refund process with unique transaction IDs and timestamps.",
+                  "description": "An attacker could modify the refund submission form by manipulating hidden fields or directly altering POST parameters to request a higher refund amount or fake receipts.",
+                  "mitigation": "Implement Server-Side Validation and strict validation rules to prevent injection.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 13,
@@ -362,8 +362,8 @@
               ],
               "threatFrequency": {
                 "spoofing": 2,
-                "tampering": 1,
-                "repudiation": 1,
+                "tampering": 3,
+                "repudiation": 2,
                 "informationDisclosure": 1,
                 "denialOfService": 1,
                 "elevationOfPrivilege": 1
