@@ -371,7 +371,14 @@
             },
             "children": [
               "7c457976-9714-4395-9f92-9af1b78cbe82"
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
+            }
           },
           {
             "position": {
