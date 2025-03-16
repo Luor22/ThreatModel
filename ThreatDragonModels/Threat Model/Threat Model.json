@@ -371,14 +371,7 @@
             },
             "children": [
               "7c457976-9714-4395-9f92-9af1b78cbe82"
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "position": {
@@ -950,7 +943,7 @@
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Tampering",
-                  "description": "Attackers or malicious insiders could alter stored refund records, patient data, or billing information in the database. ",
+                  "description": "Attackers could alter stored refund records, patient data, or billing information in the database. ",
                   "mitigation": "Use cryptographic checksums or digital signatures for critical records so that any unauthorized modifications can be detected.\nLimit who can modify or delete records to a minimal set of trusted roles. Log every change with timestamps and user identifiers.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -998,7 +991,7 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 1,
                 "informationDisclosure": 1,
                 "denialOfService": 1
@@ -1167,7 +1160,7 @@
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Tampering",
-                  "description": "Attackers or malicious insiders could modify the verification outcome (e.g., marking an invalid document as valid) or change metadata (timestamps, user IDs) within the Document Verification Application.",
+                  "description": "Attackers could modify the verification outcome (e.g., marking an invalid document as valid) or change metadata (timestamps, user IDs) within the Document Verification Application.",
                   "mitigation": "Limit who can modify verification results; log all changes for audit.\nDigitally sign or hash verification records to detect unauthorized changes.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1180,7 +1173,7 @@
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Repudiation",
-                  "description": "A verifier or administrator might deny having approved (or rejected) a document if the system does not securely link each action to a unique identity. This makes auditing and incident investigations difficult.",
+                  "description": "An employee or administrator might deny having approved (or rejected) a document if the system does not securely link each action to a unique identity. This makes auditing and incident investigations difficult.",
                   "mitigation": "Enforce multi-factor authentication for all users interacting with the verification interface.\nRecord user IDs, timestamps, document IDs, and relevant context for each verification event in tamper-proof logs.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1203,8 +1196,8 @@
               ],
               "threatFrequency": {
                 "spoofing": 1,
-                "tampering": 1,
-                "repudiation": 1,
+                "tampering": 2,
+                "repudiation": 2,
                 "informationDisclosure": 2,
                 "denialOfService": 1,
                 "elevationOfPrivilege": 1
@@ -1349,12 +1342,12 @@
                 },
                 {
                   "id": "85c3e407-5dd3-4622-a5da-c94c17360e17",
-                  "title": "Refund Form Manipulation",
+                  "title": "Log File Manipulation",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Tampering",
-                  "description": "An attacker or a dishonest user could modify the refund submission form—e.g., by manipulating hidden fields or directly altering POST parameters—to request a higher refund amount or fake receipts. This compromises the integrity of the refund process.",
-                  "mitigation": "Never rely solely on client-side checks; verify all critical data on the server.  \nImplement strict validation rules to prevent injection or unexpected data formats.",
+                  "description": "Attackers could alter or delete log entries to hide unauthorized or fraudulent activity, compromising log integrity and traceability.",
+                  "mitigation": "Sign each log file (or entry) with a cryptographic hash or digital signature. Store logs in a Write-Once-Read-Many system. imit write privileges to only a secure logging service or minimal admin roles.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 25,
@@ -1388,11 +1381,18 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 1,
                 "informationDisclosure": 1,
                 "denialOfService": 2
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
