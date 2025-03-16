@@ -322,7 +322,7 @@
                 },
                 {
                   "id": "26304ab5-2d7a-4a88-a74f-608ea579cfe3",
-                  "title": "Repudiation of Refund Actions",
+                  "title": "Elevation of privilege",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Elevation of privilege",
@@ -366,7 +366,7 @@
                 "repudiation": 2,
                 "informationDisclosure": 1,
                 "denialOfService": 1,
-                "elevationOfPrivilege": 1
+                "elevationOfPrivilege": 2
               }
             },
             "children": [
@@ -2602,16 +2602,6 @@
             "target": {
               "cell": "fb81911d-a997-4acf-885f-3e731169e73f",
               "port": "fddbb9a0-546f-472d-961f-4bd0f3df2c3d"
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
             },
             "vertices": []
           }
